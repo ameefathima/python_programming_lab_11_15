@@ -1,0 +1,23 @@
+# Program to Calculate Electricity Bill Using Exception Handling
+
+try:
+    units = float(input("Enter units consumed: "))
+
+    if units < 0:
+        raise ValueError("Units cannot be negative")
+
+    if units <= 100:
+        bill = units * 1.50
+    elif units <= 200:
+        bill = 100 * 1.50 + (units - 100) * 2.50
+    else:
+        bill = 100 * 1.50 + 100 * 2.50 + (units - 200) * 4.00
+
+except ValueError as e:
+    print("Invalid input:", e)
+
+else:
+    print("Electricity Bill: Rs.", format(bill, ".2f"))
+
+finally:
+    print("Bill calculation completed")
